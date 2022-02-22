@@ -63,4 +63,21 @@ public class RemoteObject {
     public void setClientRequestId(int clientRequestId) {
         this.clientRequestId = clientRequestId;
     }
+
+    public static RemoteObject okResponse(int clientRequestId, Map<String, Object> data) {
+        return new RemoteObject(RemoteObjectType.RESPONSE, ResponseCode.OK, clientRequestId, data);
+    }
+
+    public static RemoteObject errorResponse(int clientRequestId, Map<String, Object> data) {
+        return new RemoteObject(RemoteObjectType.RESPONSE, ResponseCode.ERROR, clientRequestId, data);
+    }
+
+    public static RemoteObject errorResponse(int clientRequestId, ErrorCode errorCode) {
+        return new RemoteObject(RemoteObjectType.RESPONSE, ResponseCode.ERROR, clientRequestId, errorCode.toMap());
+    }
+
+    public static RemoteObject request(int requestCode, int clientRequestId, Map<String, Object> data) {
+        return new RemoteObject(RemoteObjectType.REQUEST, requestCode, clientRequestId, data);
+    }
+
 }

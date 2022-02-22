@@ -1,12 +1,12 @@
-package org.summer.roast.server.net;
+package org.summer.roast.common.net;
 
+import com.google.inject.Inject;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageCodec;
 import org.summer.roast.protocol.RemoteObject;
 import org.summer.roast.protocol.RemoteObjectCodec;
 
-import javax.inject.Inject;
 import java.util.List;
 
 /**
