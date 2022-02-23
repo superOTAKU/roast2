@@ -2,6 +2,7 @@ package org.summer.roast.common.net;
 
 import com.google.inject.Inject;
 import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageCodec;
 import org.summer.roast.protocol.RemoteObject;
@@ -12,6 +13,7 @@ import java.util.List;
 /**
  * 消息编解码逻辑，委托到我们的自定义接口，以适配不同的网络层框架
  */
+@ChannelHandler.Sharable
 public class MessageCodec extends MessageToMessageCodec<ByteBuf, RemoteObject> {
     @Inject
     private RemoteObjectCodec remoteObjectCodec;

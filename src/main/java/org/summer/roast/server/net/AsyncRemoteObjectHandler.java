@@ -40,7 +40,7 @@ public class AsyncRemoteObjectHandler implements RemoteObjectHandler {
                     send(ctx, RemoteObject.errorResponse(remoteObject.getClientRequestId(), ErrorCode.REQUEST_HANDLER_NOT_FOUND));
                     return;
                 }
-                requestHandler.handle(new Request(ctx, remoteObject));
+                requestHandler.handle(new Request(ctx, remoteObject, AsyncRemoteObjectHandler.this));
             } catch (Exception e) {
                 log.error("channel {} process msg {} fail", ctx.channel(), remoteObject.getCode(), e);
             }

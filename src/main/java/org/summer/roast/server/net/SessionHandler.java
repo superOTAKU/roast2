@@ -1,9 +1,11 @@
 package org.summer.roast.server.net;
 
 import com.google.inject.Inject;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
+@ChannelHandler.Sharable
 public class SessionHandler extends ChannelInboundHandlerAdapter {
     @Inject
     private SessionManager sessionManager;
